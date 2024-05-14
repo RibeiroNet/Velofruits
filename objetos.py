@@ -1,7 +1,7 @@
 import pygame
 import random
 
-class objetos:
+class objeto:
 
     def __init__(self,arquivo_imagem,largura_imagem,altura_imagem,x_inicial,y_inicial):
         self.imagem = pygame.image.load(arquivo_imagem)
@@ -20,9 +20,9 @@ class objetos:
     
 
     def movimenta(self):
-        self.pos_x = self.pos_x - self.velocidade
-        if self.pos_x < -200:
-            self.pos_x = 850
+        self.pos_y = self.pos_y - self.velocidade
+        if self.pos_y < -200:
+            self.pos_y = 850
             self.velocidade = random.randint(10, 30)
 
     def apareca(self, tela):

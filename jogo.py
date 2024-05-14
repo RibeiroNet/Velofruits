@@ -1,8 +1,10 @@
 #DESENVOLVIDO POR NETO RIBEIRO 
 import pygame
 from personagem import Personagem
+from objetos import objeto
 
-
+#CONFIGURANDO A FONTE
+fonte = pygame.font.SysFont("Castellar",14)
 
 #CRIA JANELA DO JOGO
 pygame.init()
@@ -21,14 +23,18 @@ clock = pygame.time.Clock()
 #CRIANDO PERSONAGEM
 jogador1 = Personagem("imagens/funcionário.png",60,60,350,390)
 
+
+
 #CRIANDO OBJETOS
 lista_objetos = [objeto("imagens/comida.png",100,50,0,0),
-                objeto("imagens/dinheiro.png",100,50,0,0),
-                objeto("imagens/sono.png",100,50,0,0),
-                objeto("imagens/viagem.png",100,50,0,0),
-                objeto("imagens/festa.png",100,50,0,0),
-                objeto("imagens/chefe.png",100,50,0,0),
-                objeto("imagens/chocolate.png",100,50,0,0)]
+                 objeto("imagens/dinheiro.png",100,50,0,0),
+                 objeto("imagens/sono.png",100,50,0,0),
+                 objeto("imagens/viagem.png",100,50,0,0),
+                 objeto("imagens/festa.png",100,50,0,0),
+                 objeto("imagens/chefe.png",100,50,0,0),
+                 objeto("imagens/donut.png",100,50,0,0),
+                 objeto("imagens/chocolate.png",100,50,0,0)]
+
 
 
 
@@ -45,10 +51,28 @@ while funcionando:
     jogador1.movimenta_via_controle(pygame.K_RIGHT,pygame.K_LEFT)
     jogador1.apareca(tela)
 
+    for objeto in lista_objetos:
+        objeto.movimenta()
+        objeto.apareca(tela)
+
+        if jogador1.mascara.overlap(objeto.mascara,(objeto.pos_x-jogador1.pos_x , objeto.pos_y-jogador1.pos_y)):
+            jogador1.pos_x = 300
+            jogador1.pos_y = 450
+            jogador1.pontuacao -= 1
+
+        if jogador1.pos_y <= 10:
+            jogador1.pos_x = 300
+            jogador1.pos_y = 450
+            jogador1.pontuacao += 1
+
+        texto_pontuacao_funcionario = fonte.render(f"Pontuação: {jogador1.pontuacao}",True,(255,0,0))
+        tela.blit(texto_pontuacao_funcionario,(0,24))
+
+
     
 
 
-     #ATUALIZA TELA 
+    #ATUALIZA TELA 
     pygame.display.update()
 
     #REGULA FPS
