@@ -1,5 +1,6 @@
 #DESENVOLVIDO POR NETO RIBEIRO 
 import pygame
+import random
 from personagem import Personagem
 from objetos import objeto
 
@@ -7,7 +8,7 @@ from objetos import objeto
 pygame.init()
 
 #CONFIGURANDO A FONTE
-fonte = pygame.font.SysFont("Arial", 14,False,False)
+fonte = pygame.font.SysFont("Arial", 14,)
 
 
 
@@ -28,16 +29,16 @@ jogador1 = Personagem("imagens/funcionário.png",60,60,350,390)
 
 
 #CRIANDO OBJETOS
-lista_objetos = [objeto("imagens/comida.png",50,50,50,0),
-                 objeto("imagens/dinheiro.png",50,50,100,0),
-                 objeto("imagens/sono.png",50,50,150,0),
-                 objeto("imagens/viagem.png",50,50,200,0),
-                 objeto("imagens/festa.png",50,50,350,0),
-                 objeto("imagens/chefe.png",100,100,450,0),
-                 objeto("imagens/donut.png",50,50,120,0),
-                 objeto("imagens/chocolate.png",50,50,300,0)]
+lista_objetos = [objeto("imagens/comida.png",50,50,random.randint(100,700),0),
+                 objeto("imagens/dinheiro.png",50,50,random.randint(100,700),0),
+                 objeto("imagens/sono.png",50,50,random.randint(100,700),0),
+                 objeto("imagens/viagem.png",50,50,random.randint(100,700),0),
+                 objeto("imagens/festa.png",50,50,random.randint(100,700),0),          
+                 objeto("imagens/donut.png",50,50,random.randint(100,700),0),
+                 objeto("imagens/chocolate.png",50,50,random.randint(100,700),0)]
 
-
+#LISTA BOMBA
+lista_bomba = [objeto("imagens/chefe.png",80,80,random.randint(100,700),0)]
 
 
 #RODANDO O JOGO
@@ -53,26 +54,27 @@ while funcionando:
     jogador1.movimenta_via_controle(pygame.K_RIGHT,pygame.K_LEFT)
     jogador1.apareca(tela)
 
-    for objeto in lista_objetos:
+    for objeto in lista_bomba:
         objeto.movimenta()
-        objeto.apareca(tela)
+        objeto.apareca(tela)  
 
         if jogador1.mascara.overlap(objeto.mascara,(objeto.pos_x-jogador1.pos_x , objeto.pos_y-jogador1.pos_y)):
             jogador1.pos_x = 350
             jogador1.pos_y = 390
             jogador1.pontuacao -= 1
 
-        if jogador1.pos_y <= 10:
-            jogador1.pos_x = 350
-            jogador1.pos_y = 390
+
+    for objeto in lista_objetos:
+        objeto.movimenta()
+        objeto.apareca(tela)
+         
+        if jogador1.mascara.overlap(objeto.mascara,(objeto.pos_x-jogador1.pos_x , objeto.pos_y-jogador1.pos_y)):
             jogador1.pontuacao += 1
 
-        texto_pontuacao_funcionario = fonte.render(f"Pontuação: {jogador1.pontuacao}",True,(255,0,0))
-        tela.blit(texto_pontuacao_funcionario,(0,24))
 
-
+    texto_pontuacao_funcionario = fonte.render(f"Pontuação: {jogador1.pontuacao}",True,(0,0,0))
+    tela.blit(texto_pontuacao_funcionario,(0,24))
     
-
 
     #ATUALIZA TELA 
     pygame.display.update()
