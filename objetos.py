@@ -14,13 +14,13 @@ class objeto:
         self.pos_x = x_inicial
         self.pos_y = y_inicial
 
-        self.velocidade = random.randint(1, 20)
+        self.velocidade = random.randint(1, 10)
 
         self.mascara = pygame.mask.from_surface(self.imagem)
     
-
+ 
     def movimenta(self):
-        self.pos_y = self.pos_y - self.velocidade
+        self.pos_y = self.pos_y  + self.velocidade  
         if self.pos_y < -200:
             self.pos_y = 850
             self.velocidade = random.randint(10, 30)

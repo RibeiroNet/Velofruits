@@ -3,11 +3,13 @@ import pygame
 from personagem import Personagem
 from objetos import objeto
 
-#CONFIGURANDO A FONTE
-fonte = pygame.font.SysFont("Castellar",14)
-
 #CRIA JANELA DO JOGO
 pygame.init()
+
+#CONFIGURANDO A FONTE
+fonte = pygame.font.SysFont("Arial", 14,False,False)
+
+
 
 #TELA
 pygame.display.set_caption("Corrida do CLT")
@@ -26,14 +28,14 @@ jogador1 = Personagem("imagens/funcionário.png",60,60,350,390)
 
 
 #CRIANDO OBJETOS
-lista_objetos = [objeto("imagens/comida.png",100,50,0,0),
-                 objeto("imagens/dinheiro.png",100,50,0,0),
-                 objeto("imagens/sono.png",100,50,0,0),
-                 objeto("imagens/viagem.png",100,50,0,0),
-                 objeto("imagens/festa.png",100,50,0,0),
-                 objeto("imagens/chefe.png",100,50,0,0),
-                 objeto("imagens/donut.png",100,50,0,0),
-                 objeto("imagens/chocolate.png",100,50,0,0)]
+lista_objetos = [objeto("imagens/comida.png",50,50,50,0),
+                 objeto("imagens/dinheiro.png",50,50,100,0),
+                 objeto("imagens/sono.png",50,50,150,0),
+                 objeto("imagens/viagem.png",50,50,200,0),
+                 objeto("imagens/festa.png",50,50,350,0),
+                 objeto("imagens/chefe.png",100,100,450,0),
+                 objeto("imagens/donut.png",50,50,120,0),
+                 objeto("imagens/chocolate.png",50,50,300,0)]
 
 
 
@@ -44,7 +46,7 @@ while funcionando:
     #EVENTOS 
     for evento in pygame.event.get():
         if evento.type == pygame.QUIT:
-            rodando = False
+            funcionando = False
 
     tela.blit(FUNDO,(0,0))
 
@@ -56,13 +58,13 @@ while funcionando:
         objeto.apareca(tela)
 
         if jogador1.mascara.overlap(objeto.mascara,(objeto.pos_x-jogador1.pos_x , objeto.pos_y-jogador1.pos_y)):
-            jogador1.pos_x = 300
-            jogador1.pos_y = 450
+            jogador1.pos_x = 350
+            jogador1.pos_y = 390
             jogador1.pontuacao -= 1
 
         if jogador1.pos_y <= 10:
-            jogador1.pos_x = 300
-            jogador1.pos_y = 450
+            jogador1.pos_x = 350
+            jogador1.pos_y = 390
             jogador1.pontuacao += 1
 
         texto_pontuacao_funcionario = fonte.render(f"Pontuação: {jogador1.pontuacao}",True,(255,0,0))
