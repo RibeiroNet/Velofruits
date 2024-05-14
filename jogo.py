@@ -63,6 +63,7 @@ while funcionando:
             jogador1.pos_y = 390
             jogador1.pontuacao -= 1
             objeto.pos_y = 1 
+            objeto.pos_x = random.randint(100,700)
           
 
 
@@ -73,6 +74,7 @@ while funcionando:
         if jogador1.mascara.overlap(objeto.mascara,(objeto.pos_x-jogador1.pos_x , objeto.pos_y-jogador1.pos_y)):
             jogador1.pontuacao += 1
             objeto.pos_y = 1
+            objeto.pos_x = random.randint(100,700)
 
 
     texto_pontuacao_funcionario = fonte.render(f"Pontuação: {jogador1.pontuacao}",True,(0,0,0))
