@@ -21,6 +21,16 @@ clock = pygame.time.Clock()
 #CRIANDO PERSONAGEM
 jogador1 = Personagem("imagens/funcionário.png",60,60,350,390)
 
+#CRIANDO OBJETOS
+lista_objetos = [objeto("imagens/comida.png",100,50,0,0),
+                objeto("imagens/dinheiro.png",100,50,0,0),
+                objeto("imagens/sono.png",100,50,0,0),
+                objeto("imagens/viagem.png",100,50,0,0),
+                objeto("imagens/festa.png",100,50,0,0),
+                objeto("imagens/chefe.png",100,50,0,0),
+                objeto("imagens/chocolate.png",100,50,0,0)]
+
+
 
 #RODANDO O JOGO
 funcionando = True
