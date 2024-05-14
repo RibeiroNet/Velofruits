@@ -62,6 +62,8 @@ while funcionando:
             jogador1.pos_x = 350
             jogador1.pos_y = 390
             jogador1.pontuacao -= 1
+            objeto.pos_y = 1 
+          
 
 
     for objeto in lista_objetos:
@@ -70,6 +72,7 @@ while funcionando:
          
         if jogador1.mascara.overlap(objeto.mascara,(objeto.pos_x-jogador1.pos_x , objeto.pos_y-jogador1.pos_y)):
             jogador1.pontuacao += 1
+            objeto.pos_y = 1
 
 
     texto_pontuacao_funcionario = fonte.render(f"Pontuação: {jogador1.pontuacao}",True,(0,0,0))
