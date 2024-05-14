@@ -6,7 +6,7 @@ import pygame
 pygame.init()
 
 #TELA
-pygame.display.set_caption("Velofruits")
+pygame.display.set_caption("Corrida do CLT")
 tela = pygame.display.set_mode((800,500))
 tela.fill((80,120,200))
 
