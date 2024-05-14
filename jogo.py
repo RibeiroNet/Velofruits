@@ -1,15 +1,12 @@
 #DESENVOLVIDO POR NETO RIBEIRO 
-
 import pygame
 
-
+#CRIA JANELA DO JOGO
 pygame.init()
 
 #TELA
 pygame.display.set_caption("Corrida do CLT")
 tela = pygame.display.set_mode((800,500))
-tela.fill((80,120,200))
-
 
 #IMAGEM DE FUNDO
 FUNDO = pygame.image.load("imagens/fundo.png")
@@ -23,12 +20,13 @@ funcionando = True
 while funcionando:
     #EVENTOS 
     for evento in pygame.event.get():
-        if evento.type == pygame.MOUSEBUTTONDOWN:
-            print("Você clicou!!")
         if evento.type == pygame.QUIT:
             rodando = False
 
     tela.blit(FUNDO,(0,0))
 
-#CRIANDO JOGADOR
-jogador1 = Jogador("imagens/.png",40,30,400,460)
+     #ATUALIZA TELA 
+    pygame.display.update()
+
+    #REGULA FPS
+    clock.tick(60)
