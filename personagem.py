@@ -18,19 +18,19 @@ class Personagem:
         self.pontuacao = 0
 
 
-    def desenhar(self, tela):
+    def apareca(self, tela):
         tela.blit(self.imagem,(self.pos_x,self.pos_y))
 
 
 
-    def movimentar_via_controle(self,direita,esquerda):
+    def movimenta_via_controle(self,direita,esquerda):
         teclas = pygame.key.get_pressed()
 
         if teclas[esquerda]:
             if self.pos_x > 0:
-                self.pos_x = self.pos_x - 5
+                self.pos_x = self.pos_x - 7
 
         if teclas[direita]:
             if self.pos_x < 800-self.largura:
-                self.pos_x = self.pos_x + 5
+                self.pos_x = self.pos_x + 7
     

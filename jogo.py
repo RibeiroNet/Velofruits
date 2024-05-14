@@ -1,5 +1,8 @@
 #DESENVOLVIDO POR NETO RIBEIRO 
 import pygame
+from personagem import Personagem
+
+
 
 #CRIA JANELA DO JOGO
 pygame.init()
@@ -15,6 +18,10 @@ FUNDO = pygame.transform.scale(FUNDO,(800,500))
 #RELÓGIO FPS
 clock = pygame.time.Clock()
 
+#CRIANDO PERSONAGEM
+jogador1 = Personagem("imagens/funcionário.png",60,60,350,390)
+
+
 #RODANDO O JOGO
 funcionando = True
 while funcionando:
@@ -24,6 +31,12 @@ while funcionando:
             rodando = False
 
     tela.blit(FUNDO,(0,0))
+
+    jogador1.movimenta_via_controle(pygame.K_RIGHT,pygame.K_LEFT)
+    jogador1.apareca(tela)
+
+    
+
 
      #ATUALIZA TELA 
     pygame.display.update()

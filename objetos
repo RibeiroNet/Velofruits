@@ -1,7 +1,7 @@
 import pygame
 import random
 
-class Obstaculo:
+class objetos:
 
     def __init__(self,arquivo_imagem,largura_imagem,altura_imagem,x_inicial,y_inicial):
         self.imagem = pygame.image.load(arquivo_imagem)
@@ -25,5 +25,5 @@ class Obstaculo:
             self.pos_x = 850
             self.velocidade = random.randint(10, 30)
 
-    def desenhar(self, tela):
+    def apareca(self, tela):
         tela.blit(self.imagem,(self.pos_x,self.pos_y))        
