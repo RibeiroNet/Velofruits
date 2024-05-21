@@ -10,6 +10,15 @@ pygame.init()
 #CONFIGURANDO A FONTE
 fonte = pygame.font.SysFont("Arial", 14,)
 
+#MÚSICA E SONS
+som_bomba = pygame.mixer.Sound("sons/som_bomba.mp3")
+som_ponto = pygame.mixer.Sound("sons/som_ponto.mp3")
+som_final = pygame.mixer.Sound("sons/som_final.mp3")
+
+#MÚSICA DE FUNDO
+pygame.mixer.music.load("sons/som_fundo.mp3")
+pygame.mixer.music.set_endevent(pygame.USEREVENT)
+pygame.mixer.music.play()
 
 #TELA
 pygame.display.set_caption("Corrida do CLT")
@@ -65,6 +74,7 @@ while funcionando:
             jogador1.pontuacao -= 5
             objeto.pos_y = 1 
             objeto.pos_x = random.randint(100,700)
+            som_bomba.play()
           
 
 
@@ -76,11 +86,14 @@ while funcionando:
             jogador1.pontuacao += 1
             objeto.pos_y = 1
             objeto.pos_x = random.randint(100,700)
+            som_ponto.play()
 
     if jogador1.pontuacao < 0:
         tela.fill((0,0,0))
         texto_pontuacao_funcionario = fonte.render("Game Over!",True,(0,0,255))
         tela.blit(texto_pontuacao_funcionario,(350,104))
+        som_final.play()
+        
     if jogador1.pontuacao > 100:
         tela.fill((0,0,0))
         texto_pontuacao_funcionario = fonte.render("YOUR WIN!",True,(0,0,255))
