@@ -37,7 +37,9 @@ lista_objetos = [objeto("imagens/comida.png",50,50,random.randint(100,700),0),
                  objeto("imagens/chocolate.png",50,50,random.randint(100,700),0)]
 
 #LISTA BOMBA
-lista_bomba = [objeto("imagens/chefe.png",80,80,random.randint(100,700),0)]
+lista_bomba = [objeto("imagens/chefe.png",80,80,random.randint(100,700),0),
+               objeto("imagens/chefe.png",80,80,random.randint(100,700),0),
+               objeto("imagens/chefe.png",80,80,random.randint(100,700),0)]
 
 
 #RODANDO O JOGO
@@ -60,7 +62,7 @@ while funcionando:
         if jogador1.mascara.overlap(objeto.mascara,(objeto.pos_x-jogador1.pos_x , objeto.pos_y-jogador1.pos_y)):
             jogador1.pos_x = 350
             jogador1.pos_y = 390
-            jogador1.pontuacao -= 1
+            jogador1.pontuacao -= 15
             objeto.pos_y = 1 
             objeto.pos_x = random.randint(100,700)
           

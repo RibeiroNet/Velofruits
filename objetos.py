@@ -11,7 +11,7 @@ class objeto:
 
         self.imagem = pygame.transform.scale(self.imagem,(self.largura,self.altura))
 
-        self.pos_x = random.randint(0,750)
+        self.pos_x = random.randint(50,750)
         self.pos_y = y_inicial
 
         self.velocidade = random.randint(6,8)
@@ -24,6 +24,6 @@ class objeto:
         if self.pos_y > 900:
             self.pos_y = 1
             self.velocidade = random.randint(6,8)
-            self.pos_x = random.randint(0,750)
+            self.pos_x = random.randint(50,750)
     def apareca(self, tela):
         tela.blit(self.imagem,(self.pos_x,self.pos_y))        
