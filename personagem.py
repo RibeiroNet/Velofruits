@@ -28,9 +28,9 @@ class Personagem:
 
         if teclas[esquerda]:
             if self.pos_x > 0:
-                self.pos_x = self.pos_x - 7
+                self.pos_x = self.pos_x - 10
 
         if teclas[direita]:
             if self.pos_x < 800-self.largura:
-                self.pos_x = self.pos_x + 7
+                self.pos_x = self.pos_x + 10
     

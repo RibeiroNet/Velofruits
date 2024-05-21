@@ -62,7 +62,7 @@ while funcionando:
         if jogador1.mascara.overlap(objeto.mascara,(objeto.pos_x-jogador1.pos_x , objeto.pos_y-jogador1.pos_y)):
             jogador1.pos_x = 350
             jogador1.pos_y = 390
-            jogador1.pontuacao -= 15
+            jogador1.pontuacao -= 5
             objeto.pos_y = 1 
             objeto.pos_x = random.randint(100,700)
           
