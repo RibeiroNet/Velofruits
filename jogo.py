@@ -11,7 +11,6 @@ pygame.init()
 fonte = pygame.font.SysFont("Arial", 14,)
 
 
-
 #TELA
 pygame.display.set_caption("Corrida do CLT")
 tela = pygame.display.set_mode((800,500))
@@ -75,6 +74,12 @@ while funcionando:
             jogador1.pontuacao += 1
             objeto.pos_y = 1
             objeto.pos_x = random.randint(100,700)
+
+    if jogador1.pontuacao < 0:
+        tela.fill((0,0,0))
+        texto_pontuacao_funcionario = fonte.render("Game Over!",True,(0,0,255))
+        tela.blit(texto_pontuacao_funcionario,(350,104))
+     
 
 
     texto_pontuacao_funcionario = fonte.render(f"Pontuação: {jogador1.pontuacao}",True,(0,0,0))
