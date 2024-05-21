@@ -42,7 +42,7 @@ lista_bomba = [objeto("imagens/chefe.png",80,80,random.randint(100,700),0)]
 
 #RODANDO O JOGO
 funcionando = True
-while funcionando:
+while funcionando: 
     #EVENTOS 
     for evento in pygame.event.get():
         if evento.type == pygame.QUIT:
@@ -78,6 +78,10 @@ while funcionando:
     if jogador1.pontuacao < 0:
         tela.fill((0,0,0))
         texto_pontuacao_funcionario = fonte.render("Game Over!",True,(0,0,255))
+        tela.blit(texto_pontuacao_funcionario,(350,104))
+    if jogador1.pontuacao > 100:
+        tela.fill((0,0,0))
+        texto_pontuacao_funcionario = fonte.render("YOUR WIN!",True,(0,0,255))
         tela.blit(texto_pontuacao_funcionario,(350,104))
      
 
